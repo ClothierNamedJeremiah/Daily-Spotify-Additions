@@ -15,18 +15,49 @@ namespace MusicDaily.CosmosDBDocument
             this.uri = uri;
         }
 
-        public override bool Equals(object obj)
-        {
-            CosmosTrack other = obj as CosmosTrack;
-            return (other != null)
-                && (track_id == other.track_id);
-        }
-
         public override int GetHashCode()
         {
-            int hash = 13;
-            hash = (hash * 7) + track_id.GetHashCode();
-            return hash;
+            unchecked
+            {
+                // Choose large primes to avoid hashing collisions
+                const int HashingBase = (int)2166136261;
+                const int HashingMultiplier = 16777619;
+
+                int hash = HashingBase;
+                hash = (hash * HashingMultiplier) ^ (!Object.ReferenceEquals(null, track_id) ? track_id.GetHashCode() : 0);
+                hash = (hash * HashingMultiplier) ^ (!Object.ReferenceEquals(null, name) ? name.GetHashCode() : 0);
+                return hash;
+            }
+        }
+
+        public override bool Equals(object value)
+        {
+            CosmosTrack other = value as CosmosTrack;
+
+            return !Object.ReferenceEquals(null, other)
+                && String.Equals(track_id, other.track_id)
+                && String.Equals(name, other.name);
+        }
+
+        public static bool operator ==(CosmosTrack trackA, CosmosTrack trackB)
+        {
+            if (Object.ReferenceEquals(trackA, trackB))
+            {
+                return true;
+            }
+
+            // Ensure that "numberA" isn't null
+            if (Object.ReferenceEquals(null, trackA))
+            {
+                return false;
+            }
+
+            return (trackA.Equals(trackB));
+        }
+
+        public static bool operator !=(CosmosTrack trackA, CosmosTrack trackB)
+        {
+            return !(trackA == trackB);
         }
 
         public override string ToString()
