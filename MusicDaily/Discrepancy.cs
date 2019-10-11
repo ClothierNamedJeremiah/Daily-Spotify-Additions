@@ -12,7 +12,7 @@ namespace MusicDaily
     {
         [FunctionName("Discrepancy")]
         public static void Run(
-            [QueueTrigger("playlists", Connection = "AzureWebJobsStorage")]CosmosPlaylist NewPlaylist,
+            [ServiceBusTrigger("daily", Connection = "ServiceBusConnection")]CosmosPlaylist NewPlaylist,
             [CosmosDB(
                 databaseName: "DailyMusic",
                 collectionName: "Playlists",

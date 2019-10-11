@@ -38,7 +38,7 @@ namespace MusicDaily
         [FunctionName("DailyTimer")]
         public static async Task Run(
             [TimerTrigger("*/30 * * * * *")]TimerInfo myTimer,
-            [Queue("playlists")] IAsyncCollector<CosmosPlaylist> playlistQueue,
+            [ServiceBus("daily",Connection = "ServiceBusConnection")] IAsyncCollector<CosmosPlaylist> playlistQueue,
             ILogger log)
         {
             // Acquire Access Token
