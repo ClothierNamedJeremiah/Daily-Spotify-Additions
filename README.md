@@ -1,5 +1,5 @@
 
-# Daily Additions
+# Daily Spotify Additions
 Daily Additions is a serverless function app the lies in Azure. The application will trigger every 24 hours and perform the following operations:
 1) Scan a User's list of playlists they following using [Spotify API]([https://developer.spotify.com/documentation/web-api/](https://developer.spotify.com/documentation/web-api/)).
 2) Compare the current version of the playlist with the version in Cosmos DB schemaless database and log any additions or deletions (changes since yesterday) to a Azure Service Bus Queue.
