@@ -22,7 +22,7 @@ The local.settings.json file stores app settings, connection strings, and settin
 "Values": {
 	"AzureWebJobsStorage": "UseDevelopmentStorage=true",
 	"FUNCTIONS_WORKER_RUNTIME": "dotnet",
-	"CosmosDBConnection": "INSERT_VALUE_HERE", // A CosmosDB emulator can be used when testing locally
+	"CosmosDBConnection": "INSERT_VALUE_HERE", 
 	"ServiceBusConnection": "INSERT_VALUE_HERE",
 	"AzureWebJobsSendGridApiKey":"INSERT_VALUE_HERE",
 	"SpotifyClientId": "INSERT_VALUE_HERE",
@@ -30,6 +30,7 @@ The local.settings.json file stores app settings, connection strings, and settin
 	}
 }
 ```
+_Note: An Azure Cosmos DB Emulator can be used when testing locally for no cost_
 
 ### terraform.tfvars
 To set lots of variables, it is more convenient to specify their values in a  _variable definitions file_  (with a filename ending in either  `.tfvars`  or  `.tfvars.json`) and then specify that file on the command line with  `-var-file`. Terraform will automatically load the variable definition file `terraform.tfvars ` if it is located in the `terraform/` directory. The files should be structured as follows:
