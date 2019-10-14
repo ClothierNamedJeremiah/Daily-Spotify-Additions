@@ -12,15 +12,15 @@ namespace MusicDaily
     {
         [FunctionName("Discrepancy")]
         public static void Run(
-            [QueueTrigger("playlists", Connection = "AzureWebJobsStorage")]CosmosPlaylist NewPlaylist,
+            [ServiceBusTrigger("additions", Connection = "ServiceBusConnection")]CosmosPlaylist NewPlaylist,
             [CosmosDB(
-                databaseName: "DailyMusic",
-                collectionName: "Playlists",
+                databaseName: "dailymusic",
+                collectionName: "playlists",
                 ConnectionStringSetting = "CosmosDBConnection",
                 SqlQuery = "Select * from Playlists")] IEnumerable<CosmosPlaylist> OldPlaylists,
             [CosmosDB(
-                databaseName: "DailyMusic",
-                collectionName: "Playlists",
+                databaseName: "dailymusic",
+                collectionName: "playlists",
                 ConnectionStringSetting = "CosmosDBConnection")] out dynamic document,
             [SendGrid] out SendGridMessage message,
             ILogger log)
@@ -65,16 +65,13 @@ namespace MusicDaily
                             message_content += track.ToString();
                         }
                         message = new SendGridMessage();
-                        message.AddTo("clothiernamedjeremiah@gmail.com");
-                        message.SetFrom(new EmailAddress("dailyspotifymusic@gmail.com"));
+                        message.AddTo("test@example.com");
+                        message.SetFrom(new EmailAddress("test@example.com"));
                         message.AddContent("text/html", message_content);
                         message.SetSubject($"Music Daily {DateTime.Today.ToString("MM-dd-yyyy")}");
                     }
                     document = NewPlaylist; // Update the existing document
                 }
-
-
-
             }
         }
 
