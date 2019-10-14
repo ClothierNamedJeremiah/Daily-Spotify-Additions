@@ -30,7 +30,6 @@ namespace MusicDaily
             { "Love Pop", "37i9dQZF1DX50QitC6Oqtn" },
             { "Now Hear This", "4ANVDtJVtVMVc2Nk79VU1M" },
             { "Dance Hits", "37i9dQZF1DX0BcQWzuB7ZO" },
-            { "Heart Beats", "37i9dQZF1DWSRc3WJklgBs" },
             { "Feeling Accomplished", "37i9dQZF1DWTDafB3skWPN" },
             { "Testing 123", "1NZMnU4H5m5iYPF0RGvluO"}
         };
@@ -38,7 +37,7 @@ namespace MusicDaily
         [FunctionName("DailyTimer")]
         public static async Task Run(
             [TimerTrigger("*/30 * * * * *")]TimerInfo myTimer,
-            [ServiceBus("daily",Connection = "ServiceBusConnection")] IAsyncCollector<CosmosPlaylist> playlistQueue,
+            [ServiceBus("additions",Connection = "ServiceBusConnection")] IAsyncCollector<CosmosPlaylist> playlistQueue,
             ILogger log)
         {
             // Acquire Access Token
