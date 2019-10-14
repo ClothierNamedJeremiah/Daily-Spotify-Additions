@@ -33,7 +33,7 @@ The local.settings.json file stores app settings, connection strings, and settin
 _Note: An Azure Cosmos DB Emulator can be used when testing locally for no cost_
 
 ### terraform.tfvars
-To set lots of variables, it is more convenient to specify their values in a  _variable definitions file_  (with a filename ending in either  `.tfvars`  or  `.tfvars.json`). Terraform will automatically load the variable definition file `terraform.tfvars ` if it is located in the `terraform/` directory. The files should be structured as follows:
+To set lots of variables, it is more convenient to specify their values in a  _variable definitions file_  (with a filename ending in either  `.tfvars`  or  `.tfvars.json`). Terraform will automatically load the variable definition file `terraform.tfvars ` if it is located in the `terraform/` directory. The file should be structured as follows:
 ```
 subscription_id       = "INSERT_VALUE_HERE"
 tenant_id             = "INSERT_VALUE_HERE"
