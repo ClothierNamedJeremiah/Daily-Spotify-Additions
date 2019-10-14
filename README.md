@@ -1,9 +1,9 @@
 
 # Daily Additions
 Daily Additions is a serverless function app the lies in Azure. The application will trigger every 24 hours and perform the following operations:
-1) Scan a User's list of playlists they following using [Spotify API]([https://developer.spotify.com/documentation/web-api/](https://developer.spotify.com/documentation/web-api/))
+1) Scan a User's list of playlists they following using [Spotify API]([https://developer.spotify.com/documentation/web-api/](https://developer.spotify.com/documentation/web-api/)).
 2) Compare the current version of the playlist with the version in Cosmos DB schemaless database and log any additions or deletions (changes since yesterday) to a Azure Service Bus Queue.
-3) Send out an email to the user using [SendGrid API]([https://sendgrid.com/docs/API_Reference/api_v3.html](https://sendgrid.com/docs/API_Reference/api_v3.html)), notifying them which songs have been added to which playlists
+3) Send out an email to the user using [SendGrid API]([https://sendgrid.com/docs/API_Reference/api_v3.html](https://sendgrid.com/docs/API_Reference/api_v3.html)), notifying them which songs have been added to which playlists.
 
 ## Requirements
 * Terraform [1.32.0]([https://www.terraform.io/downloads.html](https://www.terraform.io/downloads.html))
@@ -48,4 +48,4 @@ spotify_client_secret = "INSERT_VALUE_HERE"
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
