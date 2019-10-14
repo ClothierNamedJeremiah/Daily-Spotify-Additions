@@ -6,7 +6,7 @@ Daily Additions is a serverless function app the lies in Azure. The application 
 3) Send out an email to the user using [SendGrid API]([https://sendgrid.com/docs/API_Reference/api_v3.html](https://sendgrid.com/docs/API_Reference/api_v3.html)), notifying them which songs have been added to which playlists.
 
 ## Requirements
-* Terraform [1.32.0](https://www.terraform.io/downloads.html](https://www.terraform.io/downloads.html)
+* Terraform [1.32.0](https://www.terraform.io/downloads.html)
 * Microsoft.Azure.WebJobs.Extensions.CosmosDB [3.0.4](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB/)
 * Microsoft.Azure.WebJobs.Extensions.SendGrid[3.0.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid/)
 * Microsoft.Azure.WebJobs.Extensions.ServiceBus [3.1.1](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/)
